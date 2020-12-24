@@ -1,4 +1,5 @@
 # Sudoku Solver -- Adrik Herbert
+# Dec 24 2020
 
 board = [['-', 7, '-', 2, '-', 5, '-', '-', '-'],
          [4, '-', '-', 9, 8, '-', '-', '-', '-'],
@@ -72,7 +73,7 @@ def solve():
                         solve()
                         board[row][col] = '-'
                 return
-                
+
     print_board(board)
 
 
