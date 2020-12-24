@@ -1,5 +1,4 @@
 # Hangman -- Adrik Herbert
-
 target_word = input('Enter your Hangman word: ')
 
 while True:
@@ -26,6 +25,13 @@ def guess_filter(current, letter, target):
     return temp
 
 
+def check_hangman(current, target):
+    if ''.join(current) == target:
+        return True
+    else:
+        return False
+
+
 while not solved and wrong > 0:
     print(f'Wrong guesses left: {wrong}\n')
     print(''.join(hangman_word))
@@ -38,5 +44,8 @@ while not solved and wrong > 0:
 
     if guess in target_word:
         hangman_word = guess_filter(hangman_word, guess, target_word)
+        if check_hangman(hangman_word, target_word):
+            print(f"You've found the word! <{target_word}>")
+            solved = True
     else:
         wrong -= 1
